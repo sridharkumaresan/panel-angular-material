@@ -1,0 +1,22 @@
+<mat-expansion-panel [expanded]="panelOpenState" [hideToggle]="true" (opened)="panelOpenState = true;"
+(closed)="panelOpenState = false; collapseAll();">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <mat-icon [@indicatorRotate]="panelOpenState? 'open' : 'closed'">
+        keyboard_arrow_right
+      </mat-icon>
+      Mismatched Client Participation
+    </mat-panel-title>
+    <mat-panel-description>
+      <span class="expand-text">
+        <a (click)="$event.stopPropagation(); expandCollapse()">
+          {{accordionGroupState ? 'Collapse' : 'Expand'}} All
+        </a>
+      </span>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <mat-accordion #accordion="matAccordion" multi="true">
+    <app-panel *ngFor="let d of data; index as z;" [data]="d"></app-panel>
+  </mat-accordion>
+</mat-expansion-panel>
+

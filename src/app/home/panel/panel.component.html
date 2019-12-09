@@ -1,0 +1,26 @@
+<ng-template #templ>
+  <mat-expansion-panel class="mat-elevation-z0" [expanded]="panelOpenState" [hideToggle]="true" (opened)="panelOpenState = true;"
+  (closed)="panelOpenState = false;">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <mat-icon [@indicatorRotate]="panelOpenState? 'open' : 'closed'">
+          keyboard_arrow_right
+        </mat-icon>
+        {{data.title}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <table>
+      <tr>
+        <th *ngFor="let header of data.attributeGroup[0] | splitKeys">
+          {{header | camelcase}}
+        </th>
+      </tr>
+      <tr *ngFor="let item of data.attributeGroup">
+        <td *ngFor="let value of item | splitKeys">
+          {{item[value]}}
+        </td>
+      </tr>
+    </table>
+  </mat-expansion-panel>
+
+</ng-template>

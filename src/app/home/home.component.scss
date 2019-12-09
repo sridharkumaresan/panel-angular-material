@@ -1,0 +1,26 @@
+// table {
+//   border-collapse: collapse;
+//   width: 100%;
+// }
+
+// th {
+//   text-align: left;
+// }
+
+.mat-expansion-panel-header-title > .mat-icon {
+  transition: 0.4s;
+}
+.mat-content, .mat-expansion-panel-header-title {
+  align-items: center;
+}
+.expand-text {
+  display: flex;
+  flex: 1 1 100%;
+  align-items: center;
+  place-content: flex-end;
+  a{
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
